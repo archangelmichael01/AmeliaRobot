@@ -38,7 +38,7 @@ through the /stats command, which is only available to the bot owner.
 
 ## Starting the bot.
 
-Once you've set up your database and your configuration is complete, simply run the bat file(if on windows) or run (Linux):
+Once you've set up your database and your configuration is complete, simply run the bat file(if on windows) or run (Linux)
 
 python3 -m Amelia
 
@@ -56,16 +56,6 @@ For starters click on this button
 
 
 ## Our Telegram Channel and Group
-
-* [Warbotz](https://telegram.dog/thewarbotz)
-* [WarBotzChat](https://telegram.dog/WarBotzsupport)
-
-## Credits, and Thanks to 
-*   [Abhishek](https://telegram.dog/xAbhisheksingh)
-
-
-
-
 
 
 
