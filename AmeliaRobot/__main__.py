@@ -74,21 +74,28 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-ʜᴇʟʟᴏ [🤗](https://telegra.ph/file/329647a798cccb101aecf.jpg), ɪᴍ Amelia ᴀ ʜɪɢʜʏ ᴀᴅᴠᴀɴᴄᴇᴅ ʙᴏᴛ ᴡɪᴛʜ ʟᴏᴛꜱ ᴏꜰ ᴀᴍᴀᴢɪɴɢ ᴛᴏᴏʟꜱ.
-`ɪ'ᴍ ʜᴇʀᴇ ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘꜱ! ʜɪᴛ` /help   
+ʜᴇʟʟᴏ ᴛʜᴇʀᴇ {}, ᴍʏ ɴᴀᴍᴇ ɪs ᴍɪᴄʜᴀᴇʟ ᴅᴇᴍɪᴜʀɢᴏs
+𝙄 𝘼𝙈 𝘼𝙉 𝙄𝙢𝙢𝙤𝙧𝙩𝙖𝙡 𝙖𝙣𝙙 𝙥𝙤𝙨𝙨𝙚𝙨𝙨𝙚𝙨 𝙨𝙪𝙥𝙚𝙧-𝙨𝙩𝙧𝙚𝙣𝙜𝙩𝙝, 𝙨𝙪𝙥𝙚𝙧-𝙨𝙥𝙚𝙚𝙙, 𝙞𝙣𝙫𝙪𝙡𝙣𝙚𝙧𝙖𝙗𝙞𝙡𝙞𝙩𝙮, 𝙨𝙤𝙣𝙞𝙘 𝙘𝙧𝙮, 𝙛𝙡𝙞𝙜𝙝𝙩, 𝙖𝙘𝙞𝙙𝙞𝙘 𝙗𝙡𝙤𝙤𝙙 𝘼𝙣𝙙 𝙩𝙚𝙡𝙚𝙥𝙖𝙩𝙝𝙮 𝘼𝙧𝙘𝙝𝙖𝙣𝙜𝙚𝙡.
+ɪ ᴡɪʟʟ ʜᴇʟᴘ ʏᴏᴜ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ.
+sᴇɴᴅ /help ᴛᴏ ᴋɴᴏᴡ ᴍᴏʀᴇ ᴄᴏᴍᴍᴀɴᴅs[.](https://telegra.ph/file/da3a6cc8a8a3410b3884f.mp4)
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ ᴀᴅᴅ Amelia ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️", url="t.me/ameliagroup_bot?startgroup=true"),
+            text="✙ ᴀᴅᴅ мιϲнαєℓ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ✙", url="t.me/Its_Michael_robot?startgroup=true"),
     ],
     [
         InlineKeyboardButton(text="ᴀʙᴏᴜᴛ", callback_data="amelia_"),
         InlineKeyboardButton(
-            text="ꜱᴜᴘᴘᴏʀᴛ", url=f"https://t.me/{SUPPORT_CHAT}"
+            text="♡︎ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ ♡", url=f"https://t.me/{SUPPORT_CHAT}"
         ),
     ],
+      [
+                              InlineKeyboardButton(
+            text="🥀ℝ𝚒ℤ𝚘𝚎𝕃", url="http://t.me/TheRiZoeL"),
+        InlineKeyboardButton(
+            text="🥀ΝϴᏴᏆͲᎪ", url="https://t.me/DesiNobita"),],
     [
         InlineKeyboardButton(text="ʜᴇʟᴘ & ᴄᴏᴍᴍᴀɴᴅꜱ❔", callback_data="help_back"),
     ],
@@ -96,15 +103,25 @@ buttons = [
 
 
 HELP_STRINGS = """
-`ʜɪ.. ɪ'ᴍ` Amelia [🙋‍♀️](https://telegra.ph/file/329647a798cccb101aecf.jpg)
-`ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴꜱ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴅᴏᴄᴜᴍᴇɴᴛᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ꜱᴘᴇᴄɪꜰɪᴄ ᴍᴏᴅᴜʟᴇꜱ..`"""
+Hey there! My name is ᴍɪᴄʜᴀᴇʟ.
+My greatest power is the Demiurgic power,I will help you manage your groups!\
+the things I can help you with.
 
-amelia_IMG = "https://telegra.ph/file/329647a798cccb101aecf.jpg"
+*Main* commands available:
+▩━━━━━━◈━━━━━━▩
+ ✧ /help: PM's you this message.
+ ✧ /help <module name>: PM's you info about that module.
+ ✧ /donate: information on how to donate!
+ ✧ /settings:
+ ▩━━━━━━◈━━━━━━▩
+ ✧ in PM: will send you your settings for all supported modules.
+  ✧ in a group: will redirect you to pm, with all that chat's settings [.](https://telegra.ph/file/398c495a697789c2f7931.jpg)
+ ▩━━━━━━◈━━━━━━▩
+✧ All commands can either be used with / or !"""
 
-DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project via [Paypal](#) or by contacting @itsmelegend\
- Supporting isnt always financial! \
- Those who cannot provide monetary support are welcome to help us develop the bot at ."""
+amelia_IMG = "https://telegra.ph/file/da3a6cc8a8a3410b3884f.mp4"
+
+DONATE_STRING = """NO NEED"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -349,7 +366,7 @@ def amelia_about_callback(update, context):
     query = update.callback_query
     if query.data == "amelia_":
         query.message.edit_text(
-            text=""" ℹ️ I'm *amelia*, a powerful group management bot built to help you manage your group easily.
+            text=""" ℹ️ I'm *MICHAEL*, a SUPERB group management bot built to help you manage your group easily.
                  \n❍ I can restrict users.
                  \n❍ I can greet users with customizable welcome messages and even set a group's rules.
                  \n❍ I have an advanced anti-flood system.
@@ -357,8 +374,8 @@ def amelia_about_callback(update, context):
                  \n❍ I have a note keeping system, blacklists, and even predetermined replies on certain keywords.
                  \n❍ I check for admins' permissions before executing any command and more stuffs
                  \n\n_bot licensed under the GNU General Public License v3.0_
-                 \nHere is the [💾Repository](https://github.com/war-legend/AmeliaRobot).
-                 \n\nIf you have any question about amelia, let us know at @warbotzchat .""",
+                 \nHere is the [SUPPORT](https://t.me/DNHxHELL).
+                 \n\nIf you have any question about MICHAEL, let us know at @TheRiZoeL .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -384,8 +401,8 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text=""" Hi..🤗 I'm *amelia*
-                 \nHere is the [Source Code](https://github.com/war-legend) .""",
+            text=""" Hi..🤗 I'm *MICHAEL*
+                 \nHere is the [CHANNEL](https://t.me/DragNeelOP) .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
