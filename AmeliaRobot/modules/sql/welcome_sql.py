@@ -10,45 +10,84 @@ DEFAULT_WELCOME = "Hey {first}, how are you?"
 DEFAULT_GOODBYE = "Nice knowing ya!"
 
 DEFAULT_WELCOME_MESSAGES = [
-    "{first} is here!",  # Discord welcome messages copied
-    "Ready player {first}",
-    "Genos, {first} is here.",
-    "A wild {first} appeared.",
-    "{first} came in like a Lion!",
-    "{first} has joined your party.",
-    "{first} just joined. Can I get a heal?",
-    "{first} just joined the chat - asdgfhak!",
-    "{first} just joined. Everyone, look busy!",
-    "Welcome, {first}. Stay awhile and listen.",
-    "Welcome, {first}. We were expecting you ( ͡° ͜ʖ ͡°)",
-    "Welcome, {first}. We hope you brought pizza.",
-    "Welcome, {first}. Leave your weapons by the door.",
-    "Swoooosh. {first} just landed.",
-    "Brace yourselves. {first} just joined the chat.",
-    "{first} just joined. Hide your bananas.",
-    "{first} just arrived. Seems OP - please nerf.",
-    "{first} just slid into the chat.",
-    "A {first} has spawned in the chat.",
-    "Big {first} showed up!",
-    "Where’s {first}? In the chat!",
-    "{first} hopped into the chat. Kangaroo!!",
-    "{first} just showed up. Hold my beer.",
-    "Challenger approaching! {first} has appeared!",
-    "It's a bird! It's a plane! Nevermind, it's just {first}.",
-    "It's {first}! Praise the sun! \o/",
-    "Never gonna give {first} up. Never gonna let {first} down.",
-    "Ha! {first} has joined! You activated my trap card!",
-    "Hey! Listen! {first} has joined!",
-    "We've been expecting you {first}",
-    "It's dangerous to go alone, take {first}!",
-    "{first} has joined the chat! It's super effective!",
-    "Cheers, love! {first} is here!",
-    "{first} is here, as the prophecy foretold.",
-    "{first} has arrived. Party's over.",
-    "{first} is here to kick butt and chew bubblegum. And {first} is all out of gum.",
-    "Hello. Is it {first} you're looking for?",
-    "{first} has joined. Stay awhile and listen!",
-    "Roses are red, violets are blue, {first} joined this chat with you",
+    "{first} is here! [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",  # Discord welcome messages copied
+    """
+    "Ready player {first} [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "Genos, {first} is here. [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "A wild {first} appeared. [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "{first} came in like a Lion! [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "{first} has joined your party. [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "{first} just joined. Can I get a heal? [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "{first} just joined the chat - asdgfhak! [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "{first} just joined. Everyone, look busy! [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "Welcome, {first}. Stay awhile and listen. [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "Welcome, {first}. We were expecting you ( ͡° ͜ʖ ͡°) [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "Welcome, {first}. We hope you brought pizza. [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "Welcome, {first}. Leave your weapons by the door. [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "Swoooosh. {first} just landed. [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "Brace yourselves. {first} just joined the chat. [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "{first} just joined. Hide your bananas. [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "{first} just arrived. Seems OP - please nerf. [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "{first} just slid into the chat. [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "A {first} has spawned in the chat. [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "Big {first} showed up! [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "Where’s {first}? In the chat! [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "{first} hopped into the chat. Kangaroo!! [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "{first} just showed up. Hold my beer. [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "Challenger approaching! {first} has appeared! [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "It's a bird! It's a plane! Nevermind, it's just {first}. [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "It's {first}! Praise the sun! \o/ [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "Never gonna give {first} up. Never gonna let {first} down. [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "Ha! {first} has joined! You activated my trap card! [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "Hey! Listen! {first} has joined! [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "We've been expecting you {first} [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "It's dangerous to go alone, take {first}! [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "{first} has joined the chat! It's super effective! [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "Cheers, love! {first} is here! [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "{first} is here, as the prophecy foretold. [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "{first} has arrived. Party's over. [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "{first} is here to kick butt and chew bubblegum. And {first} is all out of gum. [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "Hello. Is it {first} you're looking for? [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "{first} has joined. Stay awhile and listen! [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
+    "Roses are red, violets are blue, {first} joined this chat with you [.](https://telegra.ph/file/5c01881d02597812478dc.jpg)",
+    """
     "Welcome {first}, Avoid Punches if you can!",
     "It's a bird! It's a plane! - Nope, its {first}!",
     "{first} Joined! - Ok.",  # Discord welcome messages end.
