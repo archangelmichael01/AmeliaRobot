@@ -1,78 +1,53 @@
-#    Copyright (C) 2020-2021 by @AmarnathCdj & @InukaAsith
-#    Chatbot system written by @AmarnathCdj databse added and recoded for pyrogram by @InukaAsith
-#    This programme is a part of asuna (TG bot) project
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-#    Kang with the credits
-#    Special credits to @AmarnathCdj
 import re
 
 import emoji
-import requests
 
 IBM_WATSON_CRED_URL = "https://api.us-south.speech-to-text.watson.cloud.ibm.com/instances/bd6b59ba-3134-4dd4-aff2-49a79641ea15"
 IBM_WATSON_CRED_PASSWORD = "UQ1MtTzZhEsMGK094klnfa-7y_4MCpJY1yhd52MXOo3Y"
 url = "https://acobot-brainshop-ai-v1.p.rapidapi.com/get"
-from google_trans_new import google_translator
-from pyrogram import filters
-#    Copyright (C) 2020-2021 by @AmarnathCdj & @InukaAsith
-#    Chatbot system written by @AmarnathCdj databse added and recoded for pyrogram by @InukaAsith
-#    This programme is a part of asuna (TG bot) project
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-#    Kang with the credits
-#    Special credits to @AmarnathCdj
 import re
 
-import emoji
-import requests
-
-url = "https://acobot-brainshop-ai-v1.p.rapidapi.com/get"
+import aiohttp
 from google_trans_new import google_translator
 from pyrogram import filters
 
-from AmeliaRobot.helper_extra.aichat import add_chat, get_session, remove_chat
-from AmeliaRobot.pyrogramee.pluginshelper import admins_only, edit_or_reply
-from AmeliaRobot import pbot as Amelia
+from YoneRobot import BOT_ID
+from YoneRobot.helper_extra.aichat import add_chat, get_session, remove_chat
+from YoneRobot.pyrogramee.pluginshelper import admins_only, edit_or_reply
+from YoneRobot import pbot as rizoel
 
 translator = google_translator()
+import requests
 
 
 def extract_emojis(s):
     return "".join(c for c in s if c in emoji.UNICODE_EMOJI)
 
-BOT_ID = 1793109179
-amelia_chats = []
+
+async def fetch(url):
+    try:
+        async with aiohttp.Timeout(10.0):
+            async with aiohttp.ClientSession() as session:
+                async with session.get(url) as resp:
+                    try:
+                        data = await resp.json()
+                    except:
+                        data = await resp.text()
+            return data
+    except:
+        print("AI response Timeout")
+        return
+
+
+michael_chats = []
 en_chats = []
-# AI Chat (C) 2020-2021 by @InukaAsith
 
-
-@Amelia.on_message(filters.command("chatbot") & ~filters.edited & ~filters.bot)
+@rizoel.on_message(
+    filters.command("chatbot") & ~filters.edited & ~filters.bot & ~filters.private
+)
 @admins_only
 async def hmm(_, message):
-    global amelia_chats
+    global michael_chats
     if len(message.command) != 2:
         await message.reply_text(
             "I only recognize `/chatbot on` and /chatbot `off only`"
@@ -84,20 +59,20 @@ async def hmm(_, message):
         lel = await edit_or_reply(message, "`Processing...`")
         lol = add_chat(int(message.chat.id))
         if not lol:
-            await lel.edit("amelia AI Already Activated In This Chat")
+            await lel.edit("Michael AI Already Activated In This Chat")
             return
         await lel.edit(
-            f"amelia AI Successfully Added For Users In The Chat {message.chat.id}"
+            f"MicHael AI Successfully Added For Users In The Chat {message.chat.id}"
         )
 
     elif status == "OFF" or status == "off" or status == "Off":
         lel = await edit_or_reply(message, "`Processing...`")
         Escobar = remove_chat(int(message.chat.id))
         if not Escobar:
-            await lel.edit("amelia AI Was Not Activated In This Chat")
+            await lel.edit("Michael AI Was Not Activated In This Chat")
             return
         await lel.edit(
-            f"amelia AI Successfully Deactivated For Users In The Chat {message.chat.id}"
+            f"Michael AI Successfully Deactivated For Users In The Chat {message.chat.id}"
         )
 
     elif status == "EN" or status == "en" or status == "english":
@@ -113,44 +88,53 @@ async def hmm(_, message):
         )
 
 
-@Amelia.on_message(
-    filters.text & filters.reply & ~filters.bot & ~filters.via_bot & ~filters.forwarded,
+@rizoel.on_message(
+    filters.text
+    & filters.reply
+    & ~filters.bot
+    & ~filters.edited
+    & ~filters.via_bot
+    & ~filters.forwarded,
     group=2,
 )
 async def hmm(client, message):
-    if message.reply_to_message.from_user.id != BOT_ID:
-        message.continue_propagation()
+    if not get_session(int(message.chat.id)):
+        return
+    if not message.reply_to_message:
+        return
+    try:
+        senderr = message.reply_to_message.from_user.id
+    except:
+        return
+    if senderr != BOT_ID:
+        return
     msg = message.text
     chat_id = message.chat.id
     if msg.startswith("/") or msg.startswith("@"):
         message.continue_propagation()
     if chat_id in en_chats:
         test = msg
-        test = test.replace("amelia", "Aco")
-        test = test.replace("amelia", "Aco")
-        querystring = {
-            "bid": "178",
-            "key": "sX5A2PcYZbsN5EY6",
-            "uid": "mashape",
-            "msg": {test},
-        }
-        headers = {
-            "x-rapidapi-key": "cf9e67ea99mshecc7e1ddb8e93d1p1b9e04jsn3f1bb9103c3f",
-            "x-rapidapi-host": "acobot-brainshop-ai-v1.p.rapidapi.com",
-        }
-        response = requests.request("GET", url, headers=headers, params=querystring)
-        result = response.text
-        result = result.replace('{"cnt":"', "")
-        result = result.replace('"}', "")
-        result = result.replace("Aco", "amelia")
-        result = result.replace("<a href=\\", "<a href =")
-        result = result.replace("<\/a>", "</a>")
-        pro = result
+        test = test.replace("michael", "Aco")
+        test = test.replace("michael", "Aco")
+        URL = "https://api.affiliateplus.xyz/api/chatbot?message=hi&botname=@Its_Michael_robot&ownername=@A_viyu"
+
         try:
-            await amelia.send_chat_action(message.chat.id, "typing")
+            r = requests.request("GET", url=URL)
+        except:
+            return
+
+        try:
+            result = r.json()
+        except:
+            return
+
+        pro = result["message"]
+        try:
+            await rizoel.send_chat_action(message.chat.id, "typing")
             await message.reply_text(pro)
-        except CFError as e:
-            print(e)
+        except CFError:
+            return
+
     else:
         u = msg.split()
         emj = extract_emojis(msg)
@@ -180,120 +164,46 @@ async def hmm(client, message):
         else:
             rm = msg
             # print (rm)
+        try:
             lan = translator.detect(rm)
+        except:
+            return
         test = rm
         if not "en" in lan and not lan == "":
-            test = translator.translate(test, lang_tgt="en")
-
+            try:
+                test = translator.translate(test, lang_tgt="en")
+            except:
+                return
         # test = emoji.demojize(test.strip())
 
         # Kang with the credits bitches @InukaASiTH
-        test = test.replace("amelia", "Aco")
-        test = test.replace("amelia", "Aco")
-        querystring = {
-            "bid": "178",
-            "key": "sX5A2PcYZbsN5EY6",
-            "uid": "mashape",
-            "msg": {test},
-        }
-        headers = {
-            "x-rapidapi-key": "cf9e67ea99mshecc7e1ddb8e93d1p1b9e04jsn3f1bb9103c3f",
-            "x-rapidapi-host": "acobot-brainshop-ai-v1.p.rapidapi.com",
-        }
-        response = requests.request("GET", url, headers=headers, params=querystring)
-        result = response.text
-        result = result.replace('{"cnt":"', "")
-        result = result.replace('"}', "")
-        result = result.replace("Aco", "amelia")
-        result = result.replace("<a href=\\", "<a href =")
-        result = result.replace("<\/a>", "</a>")
-        pro = result
-        if not "en" in lan and not lan == "":
-            pro = translator.translate(pro, lang_tgt=lan[0])
+        test = test.replace("michael", "Aco")
+        test = test.replace("michael", "Aco")
+        URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@Its_Michael_robotownername=@A_viyu"
         try:
-            await asuna.send_chat_action(message.chat.id, "typing")
+            r = requests.request("GET", url=URL)
+        except:
+            return
+
+        try:
+            result = r.json()
+        except:
+            return
+        pro = result["message"]
+        if not "en" in lan and not lan == "":
+            try:
+                pro = translator.translate(pro, lang_tgt=lan[0])
+            except:
+                return
+        try:
+            await rizoel.send_chat_action(message.chat.id, "typing")
             await message.reply_text(pro)
-        except CFError as e:
-            print(e)
+        except CFError:
+            return
 
 
-@Amelia.on_message(filters.text & filters.private & ~filters.reply & ~filters.bot)
-async def inuka(client, message):
-    msg = message.text
-    if msg.startswith("/") or msg.startswith("@"):
-        message.continue_propagation()
-    u = msg.split()
-    emj = extract_emojis(msg)
-    msg = msg.replace(emj, "")
-    if (
-        [(k) for k in u if k.startswith("@")]
-        and [(k) for k in u if k.startswith("#")]
-        and [(k) for k in u if k.startswith("/")]
-        and re.findall(r"\[([^]]+)]\(\s*([^)]+)\s*\)", msg) != []
-    ):
-
-        h = " ".join(filter(lambda x: x[0] != "@", u))
-        km = re.sub(r"\[([^]]+)]\(\s*([^)]+)\s*\)", r"", h)
-        tm = km.split()
-        jm = " ".join(filter(lambda x: x[0] != "#", tm))
-        hm = jm.split()
-        rm = " ".join(filter(lambda x: x[0] != "/", hm))
-    elif [(k) for k in u if k.startswith("@")]:
-
-        rm = " ".join(filter(lambda x: x[0] != "@", u))
-    elif [(k) for k in u if k.startswith("#")]:
-        rm = " ".join(filter(lambda x: x[0] != "#", u))
-    elif [(k) for k in u if k.startswith("/")]:
-        rm = " ".join(filter(lambda x: x[0] != "/", u))
-    elif re.findall(r"\[([^]]+)]\(\s*([^)]+)\s*\)", msg) != []:
-        rm = re.sub(r"\[([^]]+)]\(\s*([^)]+)\s*\)", r"", msg)
-    else:
-        rm = msg
-        # print (rm)
-        lan = translator.detect(rm)
-    test = rm
-    if not "en" in lan and not lan == "":
-        test = translator.translate(test, lang_tgt="en")
-
-    # test = emoji.demojize(test.strip())
-
-    # Kang with the credits bitches @InukaASiTH
-    test = test.replace("amelia", "Aco")
-    test = test.replace("amelia", "Aco")
-    querystring = {
-        "bid": "178",
-        "key": "sX5A2PcYZbsN5EY6",
-        "uid": "mashape",
-        "msg": {test},
-    }
-    headers = {
-        "x-rapidapi-key": "cf9e67ea99mshecc7e1ddb8e93d1p1b9e04jsn3f1bb9103c3f",
-        "x-rapidapi-host": "acobot-brainshop-ai-v1.p.rapidapi.com",
-    }
-    response = requests.request("GET", url, headers=headers, params=querystring)
-    result = response.text
-    result = result.replace('{"cnt":"', "")
-    result = result.replace('"}', "")
-    result = result.replace("Aco", "amelia")
-    result = result.replace("<a href=\\", "<a href =")
-    result = result.replace("<\/a>", "</a>")
-    pro = result
-    if not "en" in lan and not lan == "":
-        pro = translator.translate(pro, lang_tgt=lan[0])
-    try:
-        await amelia.send_chat_action(message.chat.id, "typing")
-        await message.reply_text(pro)
-    except CFError as e:
-        print(e)
-
-
-@Amelia.on_message(
-    filters.regex("amelia|Amelia|warlegend|hello|hi")
-    & ~filters.bot
-    & ~filters.via_bot
-    & ~filters.forwarded
-    & ~filters.reply
-    & ~filters.channel  
+@rizoel.on_message(
+    filters.text & filters.private & ~filters.edited & filters.reply & ~filters.bot
 )
 async def inuka(client, message):
     msg = message.text
@@ -327,38 +237,124 @@ async def inuka(client, message):
     else:
         rm = msg
         # print (rm)
+    try:
         lan = translator.detect(rm)
+    except:
+        return
     test = rm
     if not "en" in lan and not lan == "":
-        test = translator.translate(test, lang_tgt="en")
+        try:
+            test = translator.translate(test, lang_tgt="en")
+        except:
+            return
 
-    # test = emoji.demojize(test.strip())
 
-    # Kang with the credits bitches @InukaASiTH
-    test = test.replace("amelia", "Aco")
-    test = test.replace("amelia", "Aco")
-    querystring = {
-        "bid": "178",
-        "key": "sX5A2PcYZbsN5EY6",
-        "uid": "mashape",
-        "msg": {test},
-    }
-    headers = {
-        "x-rapidapi-key": "cf9e67ea99mshecc7e1ddb8e93d1p1b9e04jsn3f1bb9103c3f",
-        "x-rapidapi-host": "acobot-brainshop-ai-v1.p.rapidapi.com",
-    }
-    response = requests.request("GET", url, headers=headers, params=querystring)
-    result = response.text
-    result = result.replace('{"cnt":"', "")
-    result = result.replace('"}', "")
-    result = result.replace("Aco", "amelia")
-    result = result.replace("<a href=\\", "<a href =")
-    result = result.replace("<\/a>", "</a>")
-    pro = result
+    test = test.replace("michael", "Aco")
+    test = test.replace("michael", "Aco")
+    URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@Its_Michael_robot&ownername=@A_viyu"
+    try:
+        r = requests.request("GET", url=URL)
+    except:
+        return
+
+    try:
+        result = r.json()
+    except:
+        return
+
+    pro = result["message"]
     if not "en" in lan and not lan == "":
         pro = translator.translate(pro, lang_tgt=lan[0])
     try:
-        await asuna.send_chat_action(message.chat.id, "typing")
+        await rizoel.send_chat_action(message.chat.id, "typing")
         await message.reply_text(pro)
-    except CFError as e:
-        print(e)
+    except CFError:
+        return
+
+
+@rizoel.on_message(
+    filters.regex("michael|micheal|MicHael|Michael|Micheal")
+    & ~filters.bot
+    & ~filters.via_bot
+    & ~filters.forwarded
+    & ~filters.reply
+    & ~filters.channel
+    & ~filters.edited
+)
+async def inuka(client, message):
+    msg = message.text
+    if msg.startswith("/") or msg.startswith("@"):
+        message.continue_propagation()
+    u = msg.split()
+    emj = extract_emojis(msg)
+    msg = msg.replace(emj, "")
+    if (
+        [(k) for k in u if k.startswith("@")]
+        and [(k) for k in u if k.startswith("#")]
+        and [(k) for k in u if k.startswith("/")]
+        and re.findall(r"\[([^]]+)]\(\s*([^)]+)\s*\)", msg) != []
+    ):
+
+        h = " ".join(filter(lambda x: x[0] != "@", u))
+        km = re.sub(r"\[([^]]+)]\(\s*([^)]+)\s*\)", r"", h)
+        tm = km.split()
+        jm = " ".join(filter(lambda x: x[0] != "#", tm))
+        hm = jm.split()
+        rm = " ".join(filter(lambda x: x[0] != "/", hm))
+    elif [(k) for k in u if k.startswith("@")]:
+
+        rm = " ".join(filter(lambda x: x[0] != "@", u))
+    elif [(k) for k in u if k.startswith("#")]:
+        rm = " ".join(filter(lambda x: x[0] != "#", u))
+    elif [(k) for k in u if k.startswith("/")]:
+        rm = " ".join(filter(lambda x: x[0] != "/", u))
+    elif re.findall(r"\[([^]]+)]\(\s*([^)]+)\s*\)", msg) != []:
+        rm = re.sub(r"\[([^]]+)]\(\s*([^)]+)\s*\)", r"", msg)
+    else:
+        rm = msg
+        # print (rm)
+    try:
+        lan = translator.detect(rm)
+    except:
+        return
+    test = rm
+    if not "en" in lan and not lan == "":
+        try:
+            test = translator.translate(test, lang_tgt="en")
+        except:
+            return
+
+    test = test.replace("michael", "Aco")
+    test = test.replace("michael", "Aco")
+    URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@Its_Michael_robot&ownername=@A_viyu"
+    try:
+        r = requests.request("GET", url=URL)
+    except:
+        return
+
+    try:
+        result = r.json()
+    except:
+        return
+    pro = result["message"]
+    if not "en" in lan and not lan == "":
+        try:
+            pro = translator.translate(pro, lang_tgt=lan[0])
+        except Exception:
+            return
+    try:
+        await rizoel.send_chat_action(message.chat.id, "typing")
+        await message.reply_text(pro)
+    except CFError:
+        return
+
+
+__help__ = """
+<b> Chatbot </b>
+Michael AI 2.0 IS THE ONLY AI SYSTEM WHICH CAN DETECT & REPLY UPTO 200 LANGUAGES
+ - /chatbot [ON/OFF]: Enables and disables AI Chat mode (EXCLUSIVE)
+ - /chatbot EN : Enables English only chatbot
+ 
+"""
+
+__mod_name__ = "chatbot"
