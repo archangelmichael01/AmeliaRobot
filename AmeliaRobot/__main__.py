@@ -74,7 +74,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-ӇҽƖƖօ [🤗](https://telegra.ph/file/6e23fa1f558b5c319662e.jpg), Iм ᘛ мιϲнαєℓ ៚  α  Hιgнℓу  A∂ναη¢є∂  Bσт  Wιтн  Lσтѕ  Oƒ  Aмαzιηg  Tσσℓѕ.I'м  Hєяє  Tσ  Hєℓρ Yσυ  Mαηαgє  Yσυя  Gяσυρѕ! Hιт /help.
+ӇҽƖƖօ [🤗](https://telegra.ph/file/6e23fa1f558b5c319662e.jpg), Iм ᘛ мιϲнαєℓ ៚  α  Hιgнℓу  A∂ναη¢є∂  Bσт  Wιтн  Lσтѕ  Oƒ  Aмαzιηg  Tσσℓѕ.I'м  Hєяє  Tσ  Hєℓρ Yσυ  Mαηαgє  Yσυя  Gяσυρѕ! Hιт  /help .
 """
 
 buttons = [
@@ -89,6 +89,9 @@ buttons = [
         ),
     ],
     [
+        InlineKeyboardButton(text="𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝐠𝐫𝐨𝐮𝐩", url=f"t.me/vexana_Support"),
+    ],
+    [
         InlineKeyboardButton(text="𝐬𝐮𝐩𝐩𝐨𝐫𝐭 𝐠𝐫𝐨𝐮𝐩", url=f"t.me/GROUP_OF_HELL"),
     ],
 ]
@@ -101,7 +104,7 @@ HELP_STRINGS = """
 amelia_IMG = "https://telegra.ph/file/3516d8a1154e5d3290a3b.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project via [Paypal](#) or by contacting @SOULxDED\
+ You can support the project via [Paypal](#) or by contacting @itzz_axel\
  Supporting isnt always financial! \
  Those who cannot provide monetary support are welcome to help us develop the bot at ."""
 
@@ -356,8 +359,8 @@ def amelia_about_callback(update, context):
                  \n❍ I have a note keeping system, blacklists, and even predetermined replies on certain keywords.
                  \n❍ I check for admins' permissions before executing any command and more stuffs
                  \n\n_bot licensed under the GNU General Public License v3.0_
-                 \nHere is the [🔥OWNER🔥](t.me/SOULxDED).
-                 \n\nIf you have any question about amelia, let us know at @warbotzchat .""",
+                 \nHere is the [🔥OWNER🔥](t.me/{OWNERUSERNAME}).
+                 \n\nIf you have any question about michele, let us know at @vexana_support .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -384,7 +387,7 @@ def Source_about_callback(update, context):
     if query.data == "source_":
         query.message.edit_text(
             text=""" Hi..🤗 I'm * ᘛ мιϲнαєℓ ៚*
-                 \nHere is the [🔥OWNER🔥](t.me/SOULxDED) .""",
+                 \nHere is the [🔥OWNER🔥](t.me/{OWNERUSERNAME}) .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -737,7 +740,7 @@ def main():
 
 
 if __name__ == "__main__":
-    LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
+    LOGGER.info("Successfully loaded michele modules: " + str(ALL_MODULES))
     telethn.start(bot_token=TOKEN)
     pbot.start()
     main()
