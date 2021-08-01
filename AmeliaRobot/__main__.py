@@ -348,7 +348,7 @@ def amelia_about_callback(update, context):
     query = update.callback_query
     if query.data == "amelia_":
         query.message.edit_text(
-            text=""" ℹ️ I'm *amelia*, a powerful group management bot built to help you manage your group easily.
+            text=""" ℹ️ I'm * ᘛ мιϲнαєℓ ៚*, a powerful group management bot built to help you manage your group easily.
                  \n❍ I can restrict users.
                  \n❍ I can greet users with customizable welcome messages and even set a group's rules.
                  \n❍ I have an advanced anti-flood system.
@@ -356,7 +356,7 @@ def amelia_about_callback(update, context):
                  \n❍ I have a note keeping system, blacklists, and even predetermined replies on certain keywords.
                  \n❍ I check for admins' permissions before executing any command and more stuffs
                  \n\n_bot licensed under the GNU General Public License v3.0_
-                 \nHere is the [💾Repository](https://github.com/war-legend/AmeliaRobot).
+                 \nHere is the [🔥OWNER🔥](t.me/SOULxDED).
                  \n\nIf you have any question about amelia, let us know at @warbotzchat .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
@@ -383,8 +383,8 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text=""" Hi..🤗 I'm *amelia*
-                 \nHere is the [Source Code](https://github.com/war-legend) .""",
+            text=""" Hi..🤗 I'm * ᘛ мιϲнαєℓ ៚*
+                 \nHere is the [🔥OWNER🔥](t.me/SOULxDED) .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
