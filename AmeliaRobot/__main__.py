@@ -74,23 +74,22 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-ʜᴇʟʟᴏ [🤗](https://telegra.ph/file/329647a798cccb101aecf.jpg), ɪᴍ Amelia ᴀ ʜɪɢʜʏ ᴀᴅᴠᴀɴᴄᴇᴅ ʙᴏᴛ ᴡɪᴛʜ ʟᴏᴛꜱ ᴏꜰ ᴀᴍᴀᴢɪɴɢ ᴛᴏᴏʟꜱ.
-`ɪ'ᴍ ʜᴇʀᴇ ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘꜱ! ʜɪᴛ` /help   
+ӇҽƖƖօ [🤗](https://telegra.ph/file/6e23fa1f558b5c319662e.jpg), Iм ᘛ мιϲнαєℓ ៚  α  Hιgнℓу  A∂ναη¢є∂  Bσт  Wιтн  Lσтѕ  Oƒ  Aмαzιηg  Tσσℓѕ.I'м  Hєяє  Tσ  Hєℓρ Yσυ  Mαηαgє  Yσυя  Gяσυρѕ! Hιт /нєℓρ.
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ ᴀᴅᴅ Amelia ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️", url="t.me/ameliagroup_bot?startgroup=true"),
+            text="➕️ ᴀᴅᴅ  ᘛ мιϲнαєℓ ៚ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️", url="t.me/ameliagroup_bot?startgroup=true"),
     ],
     [
-        InlineKeyboardButton(text="ᴀʙᴏᴜᴛ", callback_data="amelia_"),
+        InlineKeyboardButton(text="ℕ𝕠𝔹𝕚𝕥𝕒🥀", url=f"t.me/SOULxDED"),
         InlineKeyboardButton(
-            text="ꜱᴜᴘᴘᴏʀᴛ", url=f"https://t.me/{SUPPORT_CHAT}"
+            text="ℝ𝕚ℤ𝕠𝕖𝕝🥀", url=f"t.me/TheRiZoeL"
         ),
     ],
     [
-        InlineKeyboardButton(text="ʜᴇʟᴘ & ᴄᴏᴍᴍᴀɴᴅꜱ❔", callback_data="help_back"),
+        InlineKeyboardButton(text="𝐬𝐮𝐩𝐩𝐨𝐫𝐭 𝐠𝐫𝐨𝐮𝐩", url=f"t.me/GROUP_OF_HELL"),
     ],
 ]
 
