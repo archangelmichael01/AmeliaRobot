@@ -80,7 +80,7 @@ PM_START_TEXT = """
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ ᴀᴅᴅ  ᘛ мιϲнαєℓ ៚ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️", url="t.me/ameliagroup_bot?startgroup=true"),
+            text="➕️ ᴀᴅᴅ  ᘛ мιϲнαєℓ ៚ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️", url="t.me/Its_Michael_robot?startgroup=true"),
     ],
     [
         InlineKeyboardButton(text="ℕ𝕠𝔹𝕚𝕥𝕒🥀", url=f"t.me/SOULxDED"),
