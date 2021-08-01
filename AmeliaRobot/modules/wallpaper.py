@@ -58,4 +58,11 @@ def wall(update: Update, context: CallbackContext):
 WALLPAPER_HANDLER = add_CommandHandler("wall", wall)
 dispatcher.add_handler(WALLPAPER_HANDLER)
 
+
+
+__help__ = """
+<b> Wallpaper </b>
+Michael AI can give you more than 1000 of custimize wallpaper
+
+"""
 __mod_name__ = "Wallpaper"
